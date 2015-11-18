@@ -1,6 +1,6 @@
 ## Import and track requirements ##
 This extension, located in the Visual Studio Team Services "Work" hub, gives you the ability to import, map, and view traceability for any outside requirements (business, functional, technical, etc.).  This will allow Agile and Scrum teams to have greater visibility into what is being addressed at the work item level, and also allow business stakeholders to see immediate gains based on scheduled work.
-![Requirements](img/reqts.png)
+![Requirements](../img/reqts.png)
 ### Requirement integration and traceability for Agile projects
 - Import requirements from Excel (.xlsx)
 - Manage requirement to work item mapping
@@ -33,11 +33,11 @@ This extension, located in the Visual Studio Team Services "Work" hub, gives you
 8. Save the spreadsheet and exit.
 9. Click on the **Import** button to open the dialog.
 10. Choose the file to import.
-11. Click **OK**.  This will refresh the requirements view. ![Screenshot1](img/screen1.png)
+11. Click **OK**.  This will refresh the requirements view. ![Screenshot1](../img/screen1.png)
 12. The new requirements will be shown.  Double-click on one to open the mapping dialog.
 13. Choose PBI from the dropdown.  Map some stuff.  Click **Save**.  A message will display stating that the requirement was successfully mapped to the item(s) you selected.
 14. Nav to **Iteration Path**.  It will show the remedial sprint view report.
-15. Nav to **Gap Analysis**.  It will show the color-coded report depicting gaps in requirement mapping. ![Screenshot2](img/screen2.png)
+15. Nav to **Gap Analysis**.  It will show the color-coded report depicting gaps in requirement mapping. ![Screenshot2](../img/screen2.png)
 16. Nav to **Requirements**.  
 17. Click on **Export** to export the requirements, along with mapped items, into Excel.  For now, it is a simple view that contains the requirements data along with a column containing a comma-separated list of work items.  
 18. Click on the context menu (left gutter or right-click requirement) and select **Visualize Requirement**.  This will open a new dialog that will draw out the work item tree, with the requiremnt shown as the pseudo parent.  Items that are directly mapped will have a thick green border around them to draw attention to them.
