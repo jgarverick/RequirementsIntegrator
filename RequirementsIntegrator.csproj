@@ -97,7 +97,6 @@
     <Content Include="vss-extension.json" />
     <Content Include="data\SampleRequirements.xlsx" />
     <Content Include="settings.vset.json" />
-    <Content Include="doc\GettingStarted.md" />
     <Content Include="doc\overview.md" />
     <Content Include="readme.md" />
   </ItemGroup>
