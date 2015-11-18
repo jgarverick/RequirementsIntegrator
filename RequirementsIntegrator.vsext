@@ -1,0 +1,10 @@
+﻿{
+  "extensions": {
+    "mandatory": [
+      {
+        "name": "Web Compiler",
+        "productId": "148ffa77-d70a-407f-892b-9ee542346862"
+      }
+    ]
+  }
+}

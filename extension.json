@@ -1,0 +1,24 @@
+﻿{
+  "namespace": "almrangers.vsoextensions.rMapper",
+  "version": "0.0.1",
+  "name": "Requirements Mapper",
+  "description": "A requirements management tool for Visual Studio Online",
+  "provider": {
+    "name": "ALM Rangers - Josh Garverick"
+  },
+  "baseUri": "https://localhost:44300/",
+  "icon": "https://localhost:44300/images/some-icon.png",
+  "contributions": {
+    "vss.web#hubs": [
+      {
+        "id": "home.context",
+                "name": "Requirements Management",
+                "groupId": "home",
+                "order": 100,
+                "uri": "index.html",
+                "usesSdk": true,
+                "fullPage": false
+      }
+    ]
+  }
+}

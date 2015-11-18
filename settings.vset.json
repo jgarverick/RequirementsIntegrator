@@ -1,0 +1,10 @@
+﻿{
+"package": {
+		"manifestGlobs": ["vss-extension.json"]
+	},
+	"publish": {
+    "galleryUrl": "https://marketplace.visualstudio.com/",
+    "publisher": "",
+		"token": ""
+	}
+}

@@ -1,0 +1,219 @@
+{
+  "manifestVersion": 1,
+  "id": null,
+  "version": "1.1.1",
+  "publisher": "jgarverick",
+  "extensionId": "RequirementsIntegrator",
+  "name": "Requirements Integrator",
+  "scopes": [ "vso.work", "vso.work_write" ],
+  "categories": [ "Plan and track" ],
+  "description": "A requirements management and integration tool for Visual Studio Team Services.",
+  "icons": {
+    "default": "img/logo.png"
+  },
+  "public": true,
+   "content": {
+        "details": {
+            "path": "doc/overview.md"
+        },
+        "license": {
+            "path": "LICENSE.txt"
+        }
+    },
+    "links": {
+        "home": {
+            "uri": "https://github.com/jgarverick/RequirementsIntegrator"
+        },
+        "support": {
+            "uri": "https://github.com/jgarverick/RequirementsIntegrator"
+        },
+        "repository": {
+            "uri": "https://github.com/jgarverick/RequirementsIntegrator"
+        },
+        "issues": {
+            "uri": "https://github.com/jgarverick/RequirementsIntegrator/issues"
+        }
+    },
+    "branding": {
+        "color": "rgb(220, 235, 252)",
+    "theme": "light"
+    },
+  "files": [
+    {
+      "path": "scripts/mappings.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "scripts/adapters.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "scripts/common.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "scripts/gaps.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+        {
+      "path": "scripts/importDialog.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "scripts/mappingDialog.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "scripts/services.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "scripts/sprints.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "scripts/storage.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "scripts/utilities.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+        {
+      "path": "scripts/visualizerDialog.js",
+      "addressable": true,
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "dist/LICENSE",
+      "contentType": "text/plain"
+    },
+    {
+      "path": "dist/xlsx.full.min.js",
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "dist/Blob.js",
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "dist/FileSaver.js",
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "dist/cytoscape/dagre.js",
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "dist/cytoscape/cytoscape.js",
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "sdk/scripts/VSS.SDK.js",
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "LICENSE.txt",
+      "contentType": "text/plain"
+    },{
+      "path": "doc/overview.md",
+      "contentType": "text/plain"
+    },
+    {
+      "path": "data/SampleRequirements.xlsx",
+      "addressable": true,
+      "contentType": "application/vnd.ms-excel"
+    }, {
+      "path": "img",
+      "addressable": true
+    },
+    {
+      "path": "css",
+      "addressable": true
+    },
+    {
+      "path": "dist",
+      "addressable": true
+    },
+    {
+      "path": "sdk",
+      "addressable": true
+    },
+    {
+      "path": "gapAnalysis.html",
+      "addressable": true
+    },
+    {
+      "path": "importDialog.html",
+      "addressable": true
+    },
+    {
+      "path": "index.html",
+      "addressable": true
+    },
+    {
+      "path": "mappingDialog.html",
+      "addressable": true
+    },
+    {
+      "path": "sprintView.html",
+      "addressable": true
+    },
+    {
+      "path": "visualizerDialog.html",
+      "addressable": true
+    },
+    {
+      "path": "ThirdPartyNotice.txt",
+      "addressable": true
+    }
+  ],
+  "contributions": [
+    {
+      "id": "home",
+      "targets": [
+        "ms.vss-work-web.work-hub-group"
+      ],
+      "type": "ms.vss-web.hub",
+      "properties": {
+        "name": "Requirements",
+        "order": 100,
+        "uri": "index.html"
+      }
+    },
+    {
+      "id": "mappingDialog",
+      "type": "ms.vss-web.control",
+      "targets": [ ".controls" ],
+      "properties": {
+        "uri": "mappingDialog.html"
+      }
+    },
+    {
+      "id": "importDialog",
+      "type": "ms.vss-web.control",
+      "targets": [ ".controls" ],
+      "properties": {
+        "uri": "importDialog.html"
+      }
+    },
+    {
+      "id": "visualizerDialog",
+      "type": "ms.vss-web.control",
+      "targets": [ ".controls" ],
+      "properties": {
+        "uri": "visualizerDialog.html"
+      }
+    }
+  ]
+}
