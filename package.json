@@ -1,5 +1,5 @@
 {
-  "name": "rMapper.VSO",
+  "name": "rMapper.VSTS",
   "version": "1.0.0",
   "description": "VSO extension that allows for requirements traceability.",
   "main": "index.js",
@@ -10,11 +10,13 @@
   "license": "MIT",
   "dependencies": {
     "xlsx": "^0.8.0",
-    "vset": "^0.4.20",
     "grunt": "~0.4.5",
     "grunt-exec": "~0.4.6",
     "grunt-contrib-jasmine": "~0.9.1",
     "jasmine": "~2.3.2",
     "vss-sdk": "~0.90.0"
+  },
+  "devDependencies": {
+    "tfx-cli": "^0.3.19"
   }
 }
