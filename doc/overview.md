@@ -49,4 +49,4 @@ This extension, located in the Visual Studio Team Services "Work" hub, gives you
 ### Learn more about this extension
 The source to this extension is available on GitHub: [https://github.com/jgarverick/RequirementsIntegrator](https://github.com/jgarverick/RequirementsIntegrator).
 
-Notices for certain third party software included in this extension are provided here: [Third Party Notice](https://github.com/jgarverick/RequirementsIntegrator/ThirdPartyNotice.txt).
+Notices for certain third party software included in this extension are provided here: [Third Party Notice](https://github.com/jgarverick/RequirementsIntegrator/blob/master/ThirdPartyNotice.txt).
