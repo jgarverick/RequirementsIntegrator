@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": null,
-  "version": "1.2",
+  "version": "1.3",
   "publisher": "jgarverick",
   "extensionId": "RequirementsIntegrator",
   "name": "Requirements Integrator",
@@ -11,6 +11,11 @@
   "icons": {
     "default": "img/logo.png"
   },
+  "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services.Cloud"
+        }
+    ],
   "public": true,
    "content": {
         "details": {

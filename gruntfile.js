@@ -17,7 +17,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON("package.json"),
         exec: {
             package: {
-                command: "vset package -s settings.vset.json",
+                command: "tfx extension create --manifest-globs vss-extension.json",
                 stdout: true,
                 stderr: true
             },
