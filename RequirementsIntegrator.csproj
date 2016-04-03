@@ -26,18 +26,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\app.css" />
-    <Content Include="dist\Blob.js" />
-    <Content Include="dist\cpexcel.js" />
-    <Content Include="dist\cytoscape\cytoscape.js" />
-    <Content Include="dist\cytoscape\dagre.js" />
-    <Content Include="dist\cytoscape\LGPL-LICENSE.txt" />
-    <Content Include="dist\FileSaver.js" />
-    <Content Include="dist\jszip.js" />
-    <Content Include="dist\ods.js" />
-    <Content Include="dist\xlsx.core.min.js" />
-    <Content Include="dist\xlsx.full.min.js" />
-    <Content Include="dist\xlsx.js" />
-    <Content Include="dist\xlsx.min.js" />
+    <Content Include="scripts\dist\Blob.js" />
+    <Content Include="scripts\dist\cpexcel.js" />
+    <Content Include="scripts\dist\cytoscape\cytoscape.js" />
+    <Content Include="scripts\dist\cytoscape\dagre.js" />
+    <Content Include="scripts\dist\cytoscape\LGPL-LICENSE.txt" />
+    <Content Include="scripts\dist\FileSaver.js" />
+    <Content Include="scripts\dist\jszip.js" />
+    <Content Include="scripts\dist\ods.js" />
+    <Content Include="scripts\dist\xlsx.core.min.js" />
+    <Content Include="scripts\dist\xlsx.full.min.js" />
+    <Content Include="scripts\dist\xlsx.js" />
+    <Content Include="scripts\dist\xlsx.min.js" />
     <Content Include="gapAnalysis.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -65,7 +65,7 @@
     <Content Include="mappingDialog.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sdk\scripts\VSS.SDK.js" />
+    <Content Include="scripts\VSS.SDK.js" />
     <Content Include="sprintView.html" />
     <Content Include="ThirdPartyNotice.txt" />
     <Content Include="visualizerDialog.html" />
@@ -90,10 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
-    <Content Include="dist\LICENSE" />
-    <Content Include="dist\xlsx.core.min.map" />
-    <Content Include="dist\xlsx.min.map" />
-    <Content Include="dist\xlsx.full.min.map" />
+    <Content Include="scripts\dist\LICENSE" />
+    <Content Include="scripts\dist\xlsx.core.min.map" />
+    <Content Include="scripts\dist\xlsx.min.map" />
+    <Content Include="scripts\dist\xlsx.full.min.map" />
     <Content Include="vss-extension.json" />
     <Content Include="data\SampleRequirements.xlsx" />
     <Content Include="settings.vset.json" />

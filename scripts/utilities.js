@@ -36,7 +36,7 @@ define(["require", "exports", "Scripts/services", "VSS/Controls/Notifications", 
         });
         // format the 2D array as worksheet cells
         var range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
-        require(["dist/FileSaver"], function (saveAs) {
+        require(["Scripts/dist/FileSaver"], function (saveAs) {
             for (var R = 0; R != data.length; ++R) {
                 for (var C = 0; C != data[R].toString().length; ++C) {
                     if (range.s.r > R)

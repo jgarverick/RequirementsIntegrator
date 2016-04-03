@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": null,
-  "version": "1.3.1",
+  "version": "1.3.2",
   "publisher": "jgarverick",
   "extensionId": "RequirementsIntegrator",
   "name": "Requirements Integrator",
@@ -12,37 +12,37 @@
     "default": "img/logo.png"
   },
   "targets": [
-        {
-            "id": "Microsoft.VisualStudio.Services.Cloud"
-        }
-    ],
+    {
+      "id": "Microsoft.VisualStudio.Services.Cloud"
+    }
+  ],
   "public": true,
-   "content": {
-        "details": {
-            "path": "doc/overview.md"
-        },
-        "license": {
-            "path": "LICENSE.txt"
-        }
+  "content": {
+    "details": {
+      "path": "doc/overview.md"
     },
-    "links": {
-        "home": {
-            "uri": "https://github.com/jgarverick/RequirementsIntegrator"
-        },
-        "support": {
-            "uri": "https://github.com/jgarverick/RequirementsIntegrator"
-        },
-        "repository": {
-            "uri": "https://github.com/jgarverick/RequirementsIntegrator"
-        },
-        "issues": {
-            "uri": "https://github.com/jgarverick/RequirementsIntegrator/issues"
-        }
+    "license": {
+      "path": "LICENSE.txt"
+    }
+  },
+  "links": {
+    "home": {
+      "uri": "https://github.com/jgarverick/RequirementsIntegrator"
     },
-    "branding": {
-        "color": "rgb(220, 235, 252)",
+    "support": {
+      "uri": "https://github.com/jgarverick/RequirementsIntegrator"
+    },
+    "repository": {
+      "uri": "https://github.com/jgarverick/RequirementsIntegrator"
+    },
+    "issues": {
+      "uri": "https://github.com/jgarverick/RequirementsIntegrator/issues"
+    }
+  },
+  "branding": {
+    "color": "rgb(220, 235, 252)",
     "theme": "light"
-    },
+  },
   "files": [
     {
       "path": "scripts/mappings.js",
@@ -64,7 +64,7 @@
       "addressable": true,
       "contentType": "text/javascript"
     },
-        {
+    {
       "path": "scripts/importDialog.js",
       "addressable": true,
       "contentType": "text/javascript"
@@ -94,43 +94,54 @@
       "addressable": true,
       "contentType": "text/javascript"
     },
-        {
+    {
       "path": "scripts/visualizerDialog.js",
       "addressable": true,
       "contentType": "text/javascript"
     },
     {
-      "path": "dist/LICENSE",
+      "path": "scripts/dist/LICENSE",
       "contentType": "text/plain"
     },
     {
-      "path": "dist/xlsx.full.min.js",
+      "path": "scripts/dist/xlsx.full.min.js",
+      "addressable": true,
       "contentType": "text/javascript"
     },
     {
-      "path": "dist/Blob.js",
+      "path": "scripts/dist/Blob.js",
+      "addressable": true,
       "contentType": "text/javascript"
     },
     {
-      "path": "dist/FileSaver.js",
+      "path": "scripts/dist/FileSaver.js",
+      "addressable": true,
+
       "contentType": "text/javascript"
     },
     {
-      "path": "dist/cytoscape/dagre.js",
+      "path": "scripts/dist/cytoscape/dagre.js",
+      "addressable": true,
+
       "contentType": "text/javascript"
     },
     {
-      "path": "dist/cytoscape/cytoscape.js",
+      "path": "scripts/dist/cytoscape/cytoscape.js",
+      "addressable": true,
+
       "contentType": "text/javascript"
     },
     {
-      "path": "sdk/scripts/VSS.SDK.js",
+      "path": "scripts/VSS.SDK.js",
+      "addressable": true,
+
       "contentType": "text/javascript"
     },
     {
       "path": "LICENSE.txt",
       "contentType": "text/plain"
-    },{
+    },
+    {
       "path": "doc/overview.md",
       "contentType": "text/plain"
     },
@@ -138,20 +149,13 @@
       "path": "data/SampleRequirements.xlsx",
       "addressable": true,
       "contentType": "application/vnd.ms-excel"
-    }, {
+    },
+    {
       "path": "img",
       "addressable": true
     },
     {
       "path": "css",
-      "addressable": true
-    },
-    {
-      "path": "dist",
-      "addressable": true
-    },
-    {
-      "path": "sdk",
       "addressable": true
     },
     {

@@ -1,4 +1,4 @@
-﻿/// <binding AfterBuild='exec:package' />
+﻿/// <binding AfterBuild='copy:main,exec:package' />
 //---------------------------------------------------------------------
 // <copyright file="gruntfile.js">
 //    This code is licensed under the MIT License.
@@ -21,10 +21,37 @@ module.exports = function (grunt) {
                 stdout: true,
                 stderr: true
             },
-            publish: {
-                command: "vset publish -s settings.vset.json",
+            install: {
+                command: "npm install",
                 stdout: true,
                 stderr: true
+            },
+            tsdinit: {
+                command: "tsd install jquery q knockout",
+                stdout: true,
+                stderr: true
+            },
+            tsdlink: {
+                command: "tsd link",
+                stdout: true,
+                stderr: true
+            },
+            update: {
+                command: "npm up --save-dev",
+                stdout: true,
+                stderr: true
+            },
+            publish: {
+                command: "tfx extension publish",
+                stdout: true,
+                stderr: true
+            }
+        },
+        copy: {
+            main: {
+                files: [
+                  // includes files within path
+                  { expand: true, flatten: true, src: ['node_modules/vss-sdk/lib/VSS.SDK.js'], dest: 'scripts/', filter: 'isFile' }]
             }
         },
         jasmine: {
@@ -35,6 +62,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks("grunt-exec");
+    grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-contrib-jasmine");
 
 };
