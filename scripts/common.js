@@ -1,4 +1,5 @@
 define(["require", "exports", "Scripts/utilities", "Scripts/services", "VSS/Controls/Notifications", "VSS/Controls", "VSS/Controls/TreeView", "VSS/Controls/Menus"], function (require, exports, Utilities, Services, CommonControls, Controls, Treeview, Menus) {
+    "use strict";
     var RequirementCollection = (function () {
         function RequirementCollection(source) {
             this.list = JSON.parse(source);
@@ -33,7 +34,7 @@ define(["require", "exports", "Scripts/utilities", "Scripts/services", "VSS/Cont
             return req;
         };
         return RequirementCollection;
-    })();
+    }());
     exports.RequirementCollection = RequirementCollection;
     var ViewModelBase = (function () {
         function ViewModelBase() {
@@ -99,7 +100,7 @@ define(["require", "exports", "Scripts/utilities", "Scripts/services", "VSS/Cont
             }, 500);
         };
         return ViewModelBase;
-    })();
+    }());
     exports.ViewModelBase = ViewModelBase;
 });
 //# sourceMappingURL=common.js.map

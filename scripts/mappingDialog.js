@@ -11,10 +11,10 @@
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "VSS/Controls", "VSS/Controls/Grids", "Scripts/services", "VSS/Controls/Dialogs", "VSS/Controls/Notifications"], function (require, exports, Controls, Grids, Services, Dialogs, CommonControls) {
+    "use strict";
     var selectedItems;
     var MappingDialog = (function (_super) {
         __extends(MappingDialog, _super);
@@ -103,7 +103,7 @@ define(["require", "exports", "VSS/Controls", "VSS/Controls/Grids", "Scripts/ser
             return selectedItems.join(",");
         };
         return MappingDialog;
-    })(Dialogs.ModalDialog);
+    }(Dialogs.ModalDialog));
     exports.MappingDialog = MappingDialog;
     selectedItems = new Array();
     exports.dlg = new MappingDialog();

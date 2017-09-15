@@ -1,10 +1,10 @@
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "Scripts/adapters", "Scripts/utilities", "Scripts/storage", "Scripts/common", "VSS/Controls", "VSS/Controls/Menus", "VSS/Controls/Notifications"], function (require, exports, Adapters, Utilities, Storage, Common, Controls, Menus, CommonControls) {
+    "use strict";
     var rMapper;
     (function (rMapper) {
         var Core;
@@ -13,8 +13,8 @@ define(["require", "exports", "Scripts/adapters", "Scripts/utilities", "Scripts/
                 __extends(Mapper, _super);
                 function Mapper(adapter) {
                     var _this = this;
-                    var self = this;
                     _super.call(this);
+                    var self = this;
                     self.adapter = adapter;
                     $('#reqTitle').text("Requirements");
                     self.setActiveNode($('#reqTitle').text());
@@ -248,7 +248,7 @@ define(["require", "exports", "Scripts/adapters", "Scripts/utilities", "Scripts/
                     }
                 };
                 return Mapper;
-            })(Common.ViewModelBase);
+            }(Common.ViewModelBase));
             Core.Mapper = Mapper;
         })(Core = rMapper.Core || (rMapper.Core = {}));
     })(rMapper = exports.rMapper || (exports.rMapper = {}));

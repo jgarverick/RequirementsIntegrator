@@ -14,10 +14,10 @@
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "Scripts/storage", "Scripts/services", "VSS/Controls/Notifications", "VSS/Controls/Dialogs", "Scripts/adapters"], function (require, exports, Storage, Services, CommonControls, Dialogs, Adapters) {
+    "use strict";
     var dataNodes = [], dataEdges = [];
     var VisualizerDialog = (function (_super) {
         __extends(VisualizerDialog, _super);
@@ -162,7 +162,7 @@ define(["require", "exports", "Scripts/storage", "Scripts/services", "VSS/Contro
             });
         };
         return VisualizerDialog;
-    })(Dialogs.ModalDialog);
+    }(Dialogs.ModalDialog));
     exports.VisualizerDialog = VisualizerDialog;
 });
 //exports.dlg = new VisualizerDialog();

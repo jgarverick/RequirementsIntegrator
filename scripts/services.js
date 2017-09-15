@@ -9,6 +9,7 @@
 // <summary>Common services that can be exposed to all contributions.</summary>
 //---------------------------------------------------------------------
 define(["require", "exports", "VSS/Controls", "VSS/Controls/Notifications", "TFS/WorkItemTracking/RestClient", "VSS/Service"], function (require, exports, Controls, CommonControls, TFS_Wit_WebApi, VSS_Service) {
+    "use strict";
     var messageService = (function () {
         function messageService() {
         }
@@ -21,7 +22,7 @@ define(["require", "exports", "VSS/Controls", "VSS/Controls/Notifications", "TFS
             this.messenger.hideElement();
         };
         return messageService;
-    })();
+    }());
     exports.messageService = messageService;
     var queryService = (function () {
         function queryService() {
@@ -84,7 +85,7 @@ define(["require", "exports", "VSS/Controls", "VSS/Controls/Notifications", "TFS
             return client.getWorkItemTypes(VSS.getWebContext().project.name);
         };
         return queryService;
-    })();
+    }());
     exports.queryService = queryService;
 });
 //# sourceMappingURL=services.js.map

@@ -1,10 +1,10 @@
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "Scripts/storage", "Scripts/common", "Scripts/services", "VSS/Controls/Notifications"], function (require, exports, Storage, Common, Services, CommonControls) {
+    "use strict";
     var rMapper;
     (function (rMapper) {
         var SprintView = (function (_super) {
@@ -71,7 +71,7 @@ define(["require", "exports", "Scripts/storage", "Scripts/common", "Scripts/serv
                 });
             };
             return SprintView;
-        })(Common.ViewModelBase);
+        }(Common.ViewModelBase));
         rMapper.SprintView = SprintView;
     })(rMapper = exports.rMapper || (exports.rMapper = {}));
     exports.sv = new rMapper.SprintView(new Storage.VsoDocumentServiceAdapter("ProjectCollection"));

@@ -30,8 +30,8 @@ export module rMapper {
             menu: Menus.MenuBar;
 
             public constructor(adapter: Adapters.IRequirementsSourceAdapter) {
-                var self = this;
                 super();
+                var self = this;
                 self.adapter = adapter;
                 $('#reqTitle').text("Requirements");
                 self.setActiveNode($('#reqTitle').text());

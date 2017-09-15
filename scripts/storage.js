@@ -9,6 +9,7 @@
 // <summary>Adapters for different storage options (local storage, VSO data services).</summary>
 //---------------------------------------------------------------------
 define(["require", "exports", "Scripts/services", "Scripts/utilities", "VSS/Controls/Notifications"], function (require, exports, Services, Utilities, CommonControls) {
+    "use strict";
     var LocalStorageAdapter = (function () {
         function LocalStorageAdapter() {
             this.messenger = new Services.messageService();
@@ -38,7 +39,7 @@ define(["require", "exports", "Scripts/services", "Scripts/utilities", "VSS/Cont
             this.messenger.displayMessage("Item '" + id + "' removed.", CommonControls.MessageAreaType.Info);
         };
         return LocalStorageAdapter;
-    })();
+    }());
     exports.LocalStorageAdapter = LocalStorageAdapter;
     var VsoDocumentServiceAdapter = (function () {
         function VsoDocumentServiceAdapter(serviceScope) {
@@ -95,7 +96,7 @@ define(["require", "exports", "Scripts/services", "Scripts/utilities", "VSS/Cont
             });
         };
         return VsoDocumentServiceAdapter;
-    })();
+    }());
     exports.VsoDocumentServiceAdapter = VsoDocumentServiceAdapter;
     var VsoSettingsServiceAdapter = (function () {
         function VsoSettingsServiceAdapter(serviceScope) {
@@ -139,7 +140,7 @@ define(["require", "exports", "Scripts/services", "Scripts/utilities", "VSS/Cont
             });
         };
         return VsoSettingsServiceAdapter;
-    })();
+    }());
     exports.VsoSettingsServiceAdapter = VsoSettingsServiceAdapter;
 });
 //# sourceMappingURL=storage.js.map

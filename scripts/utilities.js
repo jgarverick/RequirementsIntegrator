@@ -9,6 +9,7 @@
 // <summary>Utility methods for boundary logging, process template information and others.</summary>
 //---------------------------------------------------------------------
 define(["require", "exports", "Scripts/services", "VSS/Controls/Notifications", "TFS/Core/RestClient", "VSS/Service"], function (require, exports, Services, CommonControls, Projects, VSS_Service) {
+    "use strict";
     var messenger = new Services.messageService();
     var datenum, encode_range;
     function executeBoundary(target) {

@@ -12,6 +12,7 @@
 //---------------------------------------------------------------------
 /// <reference path='services.ts' />
 define(["require", "exports", "Scripts/services", "Scripts/storage", "VSS/Controls/Notifications", "Scripts/common"], function (require, exports, Services, Storage, CommonControls, Common) {
+    "use strict";
     var flatFileAdapter = (function () {
         function flatFileAdapter(dataStore) {
             this.store = dataStore == null ? new Storage.LocalStorageAdapter() : dataStore;
@@ -47,14 +48,14 @@ define(["require", "exports", "Scripts/services", "Scripts/storage", "VSS/Contro
             reader.readAsBinaryString(f);
         };
         return flatFileAdapter;
-    })();
+    }());
     exports.flatFileAdapter = flatFileAdapter;
     var repositoryAdapter = (function () {
         function repositoryAdapter() {
         }
         repositoryAdapter.prototype.process = function (e) { };
         return repositoryAdapter;
-    })();
+    }());
     exports.repositoryAdapter = repositoryAdapter;
 });
 //# sourceMappingURL=adapters.js.map
