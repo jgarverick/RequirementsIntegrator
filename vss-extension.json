@@ -13,10 +13,10 @@
   },
   "targets": [
     {
-      "id": "Microsoft.VisualStudio.Services.Cloud"
+      "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "public": true,
+  "public": false,
   "content": {
     "details": {
       "path": "doc/overview.md"
