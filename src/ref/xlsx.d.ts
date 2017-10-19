@@ -9,8 +9,8 @@ declare module XLSX {
     export function read(data: any, opts?: IParsingOptions): IWorkBook;
     export function writeFile(wb: IWorkBook, filename: string, opts?: IProperties): any;
     export function write(wb: IWorkBook, opts?: IProperties): any;
-    export var utils:IUtils;
-    export var SSF:ISSF;
+    export const utils:IUtils;
+    export const SSF:ISSF;
 
     export interface ISSF {
         _table: Array<string>;

@@ -4,7 +4,7 @@ var webpack = require("webpack");
 module.exports = {
     target: "web",
     entry: {
-        app: "./src/app.ts"
+        app: "./src/mappings.ts"
     },
     output: {
         filename: "[name].js",

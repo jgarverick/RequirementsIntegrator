@@ -8,9 +8,9 @@
 // </copyright>
 // <summary>Common interfaces.</summary>
 //---------------------------------------------------------------------
-import Storage = require("Scripts/storage");
-import Utilities = require("Scripts/utilities");
-import Services = require("Scripts/services");
+import Storage = require("../src/storage");
+import Utilities = require("../src/utilities");
+import Services = require("../src/services");
 import CommonControls = require("VSS/Controls/Notifications");
 import Controls = require("VSS/Controls");
 import Treeview = require("VSS/Controls/TreeView");
@@ -73,7 +73,7 @@ export class RequirementCollection implements ICollection<Requirement> {
     }
 
     getItem(id: string) {
-        var req: Requirement;
+        let req: Requirement;
         this.list.forEach((itm, index) => {
             if (itm.RequirementId == id) {
                 req = itm;
@@ -92,13 +92,13 @@ export class ViewModelBase {
     public nodes: Array<Treeview.TreeNode>;
 
     constructor() {
-        var self = this;
+        let self = this;
         self.nodes = new Array<Treeview.TreeNode>();
-        var home = new Treeview.TreeNode("Requirements");
+        let home = new Treeview.TreeNode("Requirements");
         home.link = "index.html";
-        var sprints = new Treeview.TreeNode("Iteration Path View");
+        let sprints = new Treeview.TreeNode("Iteration Path View");
         sprints.link = "sprintView.html";
-        var gaps = new Treeview.TreeNode("Gap Analysis");
+        let gaps = new Treeview.TreeNode("Gap Analysis");
         gaps.link = "gapAnalysis.html";
         self.nodes.push(home);
         self.nodes.push(sprints);
@@ -110,7 +110,7 @@ export class ViewModelBase {
 
         });
 
-        var menu = Controls.create<Menus.MenuBar, any>(Menus.MenuBar, $('#navToolbar'), {
+        let menu = Controls.create<Menus.MenuBar, any>(Menus.MenuBar, $('#navToolbar'), {
             items: [
                 {
                     id: "getTemplate",
@@ -119,7 +119,7 @@ export class ViewModelBase {
                     title: "Downloads the template for importing requirements via Excel"
                 }],
             executeAction: (args) => {
-                var command = args.get_commandName();
+                let command = args.get_commandName();
                 switch (command) {
                     case "getTemplate":
                         window.open(VSS.getExtensionContext().baseUri + "/data/SampleRequirements.xlsx");
@@ -137,7 +137,7 @@ export class ViewModelBase {
     }
 
     setActiveNode(nodeText: string) {
-        var self = this;
+        let self = this;
         self.nodes.forEach((itm, idx) => {
             if (itm.text == nodeText) {
                 self.tree.setSelectedNode(itm);
@@ -147,7 +147,7 @@ export class ViewModelBase {
     }
 
     validateTemplate(callback: Function) {
-        var self = this;
+        let self = this;
         setTimeout(() => {
             if (self.processTemplate.match("CMMI") != null) {
                 $('#reqtMenu').hide();

@@ -8,9 +8,9 @@
 // </copyright>
 // <summary>Backing model for the Sprint report view.</summary>
 //---------------------------------------------------------------------
-import Storage = require("Scripts/storage");
-import Common = require("Scripts/common");
-import Services = require("Scripts/services");
+import Storage = require("../src/storage");
+import Common = require("../src/common");
+import Services = require("../src/services");
 import CommonControls = require("VSS/Controls/Notifications");
 
 export module rMapper {
@@ -31,7 +31,7 @@ export module rMapper {
         }
 
         start() {
-            var self = this;
+            let self = this;
             setTimeout(() => {
                 self.validateTemplate(() => {
                     self.store.getCollection(self.projectId + "-requirements", (results) => {
@@ -46,17 +46,17 @@ export module rMapper {
         }
 
         getSprints() {
-            var self = this;
-            var qs = new Services.queryService();
+            let self = this;
+            let qs = new Services.queryService();
             qs.getWorkItems(`select * from WorkItems where [System.TeamProject] = '${VSS.getWebContext().project.name}'`,
             ["System.IterationPath"]).then((results) => {
-                var headers = new Array<IterationItem>();
+                let headers = new Array<IterationItem>();
                 results.forEach((item, index) => {
                     if (headers.filter((f) => { return f.name == item.fields["System.IterationPath"]}).length < 1) {
 
-                        var items = results.filter((x) => { return x.fields["System.IterationPath"] == item.fields["System.IterationPath"]});
+                        let items = results.filter((x) => { return x.fields["System.IterationPath"] == item.fields["System.IterationPath"]});
                         // Now grab the work items that are also in the requirements collection
-                        var reqs: Array<Common.Requirement> = new Array<Common.Requirement>();
+                        let reqs: Array<Common.Requirement> = new Array<Common.Requirement>();
                         
                         items.forEach((itm, idx) => {
                             self.requirements.forEach((r, i) => {
@@ -67,7 +67,7 @@ export module rMapper {
                                 }
                             });
                         });
-                        var iitem: IterationItem = {
+                        let iitem: IterationItem = {
                             name: item.fields["System.IterationPath"].toString(),
                             children: reqs
                         }
@@ -77,7 +77,7 @@ export module rMapper {
                 //$('#content').html(JSON.stringify(headers));
 
                 require(["VSS/Controls", "VSS/Controls/Grids"], (Controls, Grids) => {
-                    var grid = Controls.create(Grids.Grid, $('#content'), {
+                    let grid = Controls.create(Grids.Grid, $('#content'), {
                         height: "300px",
                         lastCellFillsRemainingContent: true,
                         columns: [

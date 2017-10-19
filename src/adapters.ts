@@ -12,10 +12,10 @@
  //---------------------------------------------------------------------
 /// <reference path='services.ts' />
 
-import Services = require("Scripts/services");
-import Storage = require("Scripts/storage");
+import Services = require("../src/services");
+import Storage = require("../src/storage");
 import CommonControls = require("VSS/Controls/Notifications");
-import Common = require("Scripts/common");
+import Common = require("../src/common");
 
     export interface HTMLFileElement extends HTMLElement {
         files: FileList;
@@ -26,7 +26,7 @@ import Common = require("Scripts/common");
         process(e: any, callback: Function);
     }
 
-    declare var FileReader: {
+    declare let FileReader: {
         new ();
         readAsBinaryString(f);
     }
@@ -43,25 +43,25 @@ import Common = require("Scripts/common");
         }
 
         public process(e: HTMLFileElement, callback: Function) {
-            var self = this;
-            var files = e.files;
-            var i, f;
+            let self = this;
+            let files = e.files;
+            let i, f;
             f = files[0];
-            var reader = new FileReader();
-            var name = f.name;
+            let reader = new FileReader();
+            let name = f.name;
 
             reader.onload = (e: any) => {
-                var data = e.target.result;
+                let data = e.target.result;
                 try {
-                    var workbook = XLSX.read(data, { type: 'binary' });
+                    let workbook = XLSX.read(data, { type: 'binary' });
                 
                     /* DO SOMETHING WITH workbook HERE */
-                    var sheetNameList = workbook.SheetNames;
+                    let sheetNameList = workbook.SheetNames;
 
                     sheetNameList.forEach((y) => { /* iterate through sheets */
-                        var worksheet = workbook.Sheets[y];
-                        var src = XLSX.utils.sheet_to_json(worksheet);
-                        var collection = new Common.RequirementCollection(JSON.stringify(src));
+                        let worksheet = workbook.Sheets[y];
+                        let src = XLSX.utils.sheet_to_json(worksheet);
+                        let collection = new Common.RequirementCollection(JSON.stringify(src));
                         self.store.setCollection(self.projectId + "-requirements", collection.toString());
                         if (callback)
                             callback();

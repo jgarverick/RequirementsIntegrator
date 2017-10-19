@@ -10,6 +10,6 @@
     ]
   },
   "files": [
-    "src/app.ts"
+    "src/*.ts"
   ]
 }

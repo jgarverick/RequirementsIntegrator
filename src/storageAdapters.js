@@ -1,9 +1,9 @@
 define(["require", "exports"], function (require, exports) {
-    var rMapper;
+    let rMapper;
     (function (rMapper) {
-        var Storage;
+        let Storage;
         (function (Storage) {
-            var localStorageAdapter = (function () {
+            let localStorageAdapter = (function () {
                 function localStorageAdapter() {
                 }
                 localStorageAdapter.prototype.getItem = function (id) {
@@ -21,7 +21,7 @@ define(["require", "exports"], function (require, exports) {
                 return localStorageAdapter;
             })();
             Storage.localStorageAdapter = localStorageAdapter;
-            var VSODataServiceAdapter = (function () {
+            let VSODataServiceAdapter = (function () {
                 function VSODataServiceAdapter() {
                 }
                 VSODataServiceAdapter.prototype.getItem = function (id) {

@@ -12,19 +12,19 @@
 // </summary>
 //---------------------------------------------------------------------
 
-/// <reference path='ref/VSS.d.ts' />
-/// <reference path='ref/xlsx.d.ts' />
-/// <reference path='adapters.ts' />
+/// <reference path="ref/VSS.d.ts" />
+/// <reference path="ref/xlsx.d.ts" />
+/// <reference path="adapters.ts" />
 
-import Storage = require("Scripts/storage");
-import Services = require("Scripts/services");
+import Storage = require("../src/storage");
+import Services = require("../src/services");
 import CommonControls = require("VSS/Controls/Notifications");
 import Dialogs = require("VSS/Controls/Dialogs");
-import Adapters = require("Scripts/adapters");
-import Common = require("Scripts/common");
+import Adapters = require("../src/adapters");
+import Common = require("../src/common");
 import Contracts = require("TFS/WorkItemTracking/Contracts");
 
-var dataNodes = [],
+let dataNodes = [],
     dataEdges = [];
 export class VisualizerDialog extends Dialogs.ModalDialog {
     messenger: Services.messageService;
@@ -35,7 +35,7 @@ export class VisualizerDialog extends Dialogs.ModalDialog {
 
     constructor(context?: WebContext, cy?:any) {
         super();
-        var self = this;
+        let self = this;
         self.cytoscape = cy;
         self.context = context;
         self.messenger = new Services.messageService();
@@ -43,13 +43,13 @@ export class VisualizerDialog extends Dialogs.ModalDialog {
     }
 
     start(item: Common.Requirement) {
-        var self = this;
+        let self = this;
         if (item.MappedItems == null || item.MappedItems == "") {
             self.messenger.displayMessage("There are no work items mapped to this requirement.", CommonControls.MessageAreaType.Error);
             return false;
         }
         self.mappedItems = item.MappedItems.split(",");
-        var qs = new Services.queryService();
+        let qs = new Services.queryService();
         qs.getWorkItemHierarchy("select [System.Id], [System.WorkItemType], [System.Title], [System.State], " +
             "[System.AreaPath], [System.IterationPath], [System.Tags] from WorkItemLinks where" +
             " (Source.[System.TeamProject] = '" + VSS.getWebContext().project.name +
@@ -60,8 +60,8 @@ export class VisualizerDialog extends Dialogs.ModalDialog {
             "[System.ChangedDate] desc mode (Recursive)",
             ["System.WorkItemType", "System.Title", "System.State","System.WorkItemType"], item.RequirementId)
             .then((results) => {
-                var output = [];
-                var rootItem = {
+                let output = [];
+                let rootItem = {
                     data: {
                         id: item.RequirementId,
                         name: item.Title,
@@ -70,7 +70,7 @@ export class VisualizerDialog extends Dialogs.ModalDialog {
                 }
                 output.push(rootItem);
                 results.forEach((itm, idx) => {
-                    var bkColor = itm.data.workItemType;
+                    let bkColor = itm.data.workItemType;
                     switch(bkColor) {
                         case "Product Backlog Item":
                             itm.data.bkcolor = "lightblue";
@@ -97,9 +97,9 @@ export class VisualizerDialog extends Dialogs.ModalDialog {
     }
 
     visualize() {
-        var self = this;
+        let self = this;
 
-            var cy = self.cytoscape({
+            let cy = self.cytoscape({
                 container: $('#cy')[0],
 
                 style: self.cytoscape.stylesheet()
@@ -152,15 +152,15 @@ export class VisualizerDialog extends Dialogs.ModalDialog {
     }
 
     createHierarchy(data: any) {
-        var self = this;
-        var dataMap = data.reduce((map, node) => {
+        let self = this;
+        let dataMap = data.reduce((map, node) => {
             map[node.data.id] = node;
             return map;
         }, {});
-        var projectUrl = VSS.getWebContext().collection.uri + "/" + VSS.getWebContext().project.name;
+        let projectUrl = VSS.getWebContext().collection.uri + "/" + VSS.getWebContext().project.name;
         data.forEach((node) => {
             // add to parent
-            var dataNode = {
+            let dataNode = {
                 data: {
                     id: node.data.id,
                     name: node.data.name,
@@ -173,10 +173,10 @@ export class VisualizerDialog extends Dialogs.ModalDialog {
             }
             dataNodes.push(dataNode);
 
-            var parent = dataMap[node.data.parent];
+            let parent = dataMap[node.data.parent];
             if (parent) {
                 // create child array if it doesn't exist
-                var edge = {
+                let edge = {
                     data: {
                         source: parent.data.id ,
                         target: node.data.id 
