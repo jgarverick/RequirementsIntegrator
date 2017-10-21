@@ -1,4 +1,4 @@
-define(["require", "exports", "Scripts/utilities", "Scripts/services", "VSS/Controls/Notifications", "VSS/Controls", "VSS/Controls/TreeView", "VSS/Controls/Menus"], function (require, exports, Utilities, Services, CommonControls, Controls, Treeview, Menus) {
+define(["require", "exports", "src/utilities", "src/services", "VSS/Controls/Notifications", "VSS/Controls", "VSS/Controls/TreeView", "VSS/Controls/Menus"], function (require, exports, Utilities, Services, CommonControls, Controls, Treeview, Menus) {
     "use strict";
     var RequirementCollection = (function () {
         function RequirementCollection(source) {
@@ -39,7 +39,7 @@ define(["require", "exports", "Scripts/utilities", "Scripts/services", "VSS/Cont
     var ViewModelBase = (function () {
         function ViewModelBase() {
             this.projectId = VSS.getWebContext().project.id;
-            this.messenger = new Services.messageService();
+            this.messenger = new Services.MessageService();
             var self = this;
             self.nodes = new Array();
             var home = new Treeview.TreeNode("Requirements");

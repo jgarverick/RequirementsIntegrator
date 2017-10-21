@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "VSS/Controls", "VSS/Controls/Grids", "Scripts/services", "VSS/Controls/Dialogs", "VSS/Controls/Notifications"], function (require, exports, Controls, Grids, Services, Dialogs, CommonControls) {
+define(["require", "exports", "VSS/Controls", "VSS/Controls/Grids", "src/services", "VSS/Controls/Dialogs", "VSS/Controls/Notifications"], function (require, exports, Controls, Grids, Services, Dialogs, CommonControls) {
     "use strict";
     var selectedItems;
     var MappingDialog = (function (_super) {
@@ -22,13 +22,13 @@ define(["require", "exports", "VSS/Controls", "VSS/Controls/Grids", "Scripts/ser
             _super.call(this);
             var self = this;
             self.context = context;
-            self.messenger = new Services.messageService();
+            self.messenger = new Services.MessageService();
             $("#workItemType").on("change", self.getItems);
         }
         MappingDialog.prototype.getItems = function (e) {
-            var messenger = new Services.messageService();
+            var messenger = new Services.MessageService();
             $("#mappingContent").html("").hide();
-            var qs = new Services.queryService();
+            var qs = new Services.QueryService();
             // Now call in and get the details
             qs.getWorkItems("select * from WorkItems where [System.WorkItemType] = '" + $("#workItemType").val() + "' AND [System.TeamProject] = '" + VSS.getWebContext().project.name + "'", ["System.Title", "System.WorkItemType"]).then(function (results) {
                 var container = $("#mappingContent");
@@ -84,7 +84,7 @@ define(["require", "exports", "VSS/Controls", "VSS/Controls/Grids", "Scripts/ser
             var self = this;
             self.requirementId = id;
             // Grab the project work item types
-            var qs = new Services.queryService();
+            var qs = new Services.QueryService();
             qs.getWorkItemTypes().then(function (types) {
                 $("#workItemType").html("");
                 types.filter(function (x) {

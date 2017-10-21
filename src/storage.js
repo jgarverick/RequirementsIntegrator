@@ -8,11 +8,11 @@
 // </copyright>
 // <summary>Adapters for different storage options (local storage, VSO data services).</summary>
 //---------------------------------------------------------------------
-define(["require", "exports", "Scripts/services", "Scripts/utilities", "VSS/Controls/Notifications"], function (require, exports, Services, Utilities, CommonControls) {
+define(["require", "exports", "src/services", "src/utilities", "VSS/Controls/Notifications"], function (require, exports, Services, Utilities, CommonControls) {
     "use strict";
     var LocalStorageAdapter = (function () {
         function LocalStorageAdapter() {
-            this.messenger = new Services.messageService();
+            this.messenger = new Services.MessageService();
         }
         LocalStorageAdapter.prototype.getCollection = function (id, callback) {
             var item = localStorage.getItem(id);
@@ -44,7 +44,7 @@ define(["require", "exports", "Scripts/services", "Scripts/utilities", "VSS/Cont
     var VsoDocumentServiceAdapter = (function () {
         function VsoDocumentServiceAdapter(serviceScope) {
             this.scope = serviceScope || "ProjectCollection";
-            this.messenger = new Services.messageService();
+            this.messenger = new Services.MessageService();
             this.dataService = VSS.getService(VSS.ServiceIds.ExtensionData);
         }
         VsoDocumentServiceAdapter.prototype.getCollection = function (id, callback) {
@@ -101,7 +101,7 @@ define(["require", "exports", "Scripts/services", "Scripts/utilities", "VSS/Cont
     var VsoSettingsServiceAdapter = (function () {
         function VsoSettingsServiceAdapter(serviceScope) {
             this.scope = serviceScope;
-            this.messenger = new Services.messageService();
+            this.messenger = new Services.MessageService();
             this.dataService = VSS.getService(VSS.ServiceIds.ExtensionData);
         }
         VsoSettingsServiceAdapter.prototype.getCollection = function (id, callback) {

@@ -8,9 +8,9 @@
 // </copyright>
 // <summary>Utility methods for boundary logging, process template information and others.</summary>
 //---------------------------------------------------------------------
-define(["require", "exports", "Scripts/services", "VSS/Controls/Notifications", "TFS/Core/RestClient", "VSS/Service"], function (require, exports, Services, CommonControls, Projects, VSS_Service) {
+define(["require", "exports", "src/services", "VSS/Controls/Notifications", "TFS/Core/RestClient", "VSS/Service"], function (require, exports, Services, CommonControls, Projects, VSS_Service) {
     "use strict";
-    var messenger = new Services.messageService();
+    var messenger = new Services.MessageService();
     var datenum, encode_range;
     function executeBoundary(target) {
         try {
@@ -37,7 +37,7 @@ define(["require", "exports", "Scripts/services", "VSS/Controls/Notifications", 
         });
         // format the 2D array as worksheet cells
         var range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
-        require(["Scripts/dist/FileSaver"], function (saveAs) {
+        require(["src/dist/FileSaver.js"], function (saveAs) {
             for (var R = 0; R != data.length; ++R) {
                 for (var C = 0; C != data[R].toString().length; ++C) {
                     if (range.s.r > R)

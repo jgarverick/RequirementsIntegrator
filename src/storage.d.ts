@@ -1,14 +1,14 @@
 /// <reference path="common.d.ts" />
-import Services = require("Scripts/services");
+import Services = require("src/services");
 export interface IStorageProvider {
     getCollection(collectionId: string, callback: Function): any;
     setCollection(id: string, value: string): any;
     clear(): any;
     remove(id: string): any;
-    messenger: Services.messageService;
+    messenger: Services.MessageService;
 }
 export declare class LocalStorageAdapter implements IStorageProvider {
-    messenger: Services.messageService;
+    messenger: Services.MessageService;
     constructor();
     getCollection(id: string, callback: Function): string;
     setCollection(id: string, value: string): void;
@@ -17,7 +17,7 @@ export declare class LocalStorageAdapter implements IStorageProvider {
 }
 export declare class VsoDocumentServiceAdapter implements IStorageProvider {
     private scope;
-    messenger: Services.messageService;
+    messenger: Services.MessageService;
     private dataService;
     constructor(serviceScope: string);
     getCollection(id: string, callback: Function): void;
@@ -27,7 +27,7 @@ export declare class VsoDocumentServiceAdapter implements IStorageProvider {
 }
 export declare class VsoSettingsServiceAdapter implements IStorageProvider {
     private scope;
-    messenger: Services.messageService;
+    messenger: Services.MessageService;
     private dataService;
     constructor(serviceScope: string);
     getCollection(id: string, callback: Function): void;

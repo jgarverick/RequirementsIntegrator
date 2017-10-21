@@ -11,12 +11,12 @@
 // </summary>
 //---------------------------------------------------------------------
 /// <reference path='services.ts' />
-define(["require", "exports", "Scripts/services", "Scripts/storage", "VSS/Controls/Notifications", "Scripts/common"], function (require, exports, Services, Storage, CommonControls, Common) {
+define(["require", "exports", "src/services", "src/storage", "VSS/Controls/Notifications", "src/common"], function (require, exports, Services, Storage, CommonControls, Common) {
     "use strict";
     var flatFileAdapter = (function () {
         function flatFileAdapter(dataStore) {
             this.store = dataStore == null ? new Storage.LocalStorageAdapter() : dataStore;
-            this.msg = new Services.messageService();
+            this.msg = new Services.MessageService();
             this.projectId = VSS.getWebContext().project.id;
         }
         flatFileAdapter.prototype.process = function (e, callback) {

@@ -1,29 +1,27 @@
-﻿//---------------------------------------------------------------------
+﻿// ---------------------------------------------------------------------
 // <copyright file="mappings.ts">
 //    This code is licensed under the MIT License.
-//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF 
-//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
-//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
 //    PARTICULAR PURPOSE AND NONINFRINGEMENT.
 // </copyright>
 // <summary>Backing model for the default extension view, allowing the user to map requirements.</summary>
-//---------------------------------------------------------------------
-/// <reference path='ref/VSS.d.ts' />
-/// <reference path='ref/xlsx.d.ts' />
-/// <reference path='adapters.ts' />
-import Adapters = require("Scripts/adapters");
-import Utilities = require("Scripts/utilities");
-import Storage = require("Scripts/storage");
-import Common = require("Scripts/common");
+// ---------------------------------------------------------------------
+
+/// <reference path="ref/xlsx.d.ts" />
+/// <reference path="adapters.ts" />
+import Adapters = require("../src/adapters");
+import Utilities = require("../src/utilities");
+import Storage = require("../src/storage");
+import Common = require("../src/common");
 import Controls = require("VSS/Controls");
 import Menus = require("VSS/Controls/Menus");
 import CommonControls = require("VSS/Controls/Notifications");
 import Grids = require("VSS/Controls/Grids");
 
-export module rMapper {
-    export module Core {
-
-
+export namespace rMapper {
+    export namespace Core {
         export class Mapper extends Common.ViewModelBase implements Common.IAppInit {
             adapter: Adapters.IRequirementsSourceAdapter;
             grid: Grids.Grid;
@@ -31,11 +29,11 @@ export module rMapper {
 
             public constructor(adapter: Adapters.IRequirementsSourceAdapter) {
                 super();
-                var self = this;
+                let self = this;
                 self.adapter = adapter;
-                $('#reqTitle').text("Requirements");
-                self.setActiveNode($('#reqTitle').text());
-                self.menu = Controls.create<Menus.MenuBar,any>(Menus.MenuBar, $('#reqtMenu'), {
+                $("#reqTitle").text("Requirements");
+                self.setActiveNode($("#reqTitle").text());
+                self.menu = Controls.create<Menus.MenuBar, any>(Menus.MenuBar, $("#reqtMenu"), {
                     items: [
                         {
                             id: "importButton",
@@ -57,8 +55,8 @@ export module rMapper {
                             title: "Deletes all requirements and mappings"
                         }],
                     executeAction: (args) => {
-                        var command = args.get_commandName();
-                        switch(command) {
+                        let command = args.get_commandName();
+                        switch (command) {
                             case "clearButton":
                                 self.clearRequirements();
                                 break;
@@ -67,7 +65,7 @@ export module rMapper {
                                 break;
                             case "exportButton":
                                 this.adapter.store.getCollection(self.projectId + "-requirements", (reqt) => {
-                                    Utilities.exportToExcel(reqt, { bookType: 'xlsx', bookSST: true, type: 'binary' });
+                                    Utilities.exportToExcel(reqt, { bookType: "xlsx", bookSST: true, type: "binary" });
                                 });
                                 break;
                         }
@@ -76,8 +74,7 @@ export module rMapper {
             }
 
             start() {
-                var self = this;
-                
+                let self = this;
                 // Initial query/load of data
                 setTimeout(() => {
                     self.validateTemplate(() => {
@@ -91,14 +88,14 @@ export module rMapper {
             }
 
             getRequirements(reqt?: any) {
-                var self = this;
-                var importItem = self.menu.getItem("importButton");
-                var exportItem = self.menu.getItem("exportButton");
-                var clearItem = self.menu.getItem("clearButton");
+                let self = this;
+                let importItem = self.menu.getItem("importButton");
+                let exportItem = self.menu.getItem("exportButton");
+                let clearItem = self.menu.getItem("clearButton");
 
                 function menuItemClick(args) {
                     // Get the item associated with the context menu
-                    var reqt = args.get_commandArgument().item;
+                    let reqt = args.get_commandArgument().item;
                     switch (args.get_commandName()) {
                         case "map":
                             self.showMappingDialog((<Common.Requirement>reqt).RequirementId);
@@ -145,7 +142,7 @@ export module rMapper {
                                 { text: "Description", index: "Description", width: 500 },
                             ],
                             openRowDetail: (index: number) => {
-                                var req: Common.Requirement = self.grid.getRowData(index);
+                                let req: Common.Requirement = self.grid.getRowData(index);
                                 self.showMappingDialog(req.RequirementId);
                             },
                             source: JSON.parse(reqt)
@@ -174,16 +171,15 @@ export module rMapper {
             }
 
             showVisualizationDialog(req: Common.Requirement) {
-                var self = this;
-                var createVizDialog;
+                let self = this;
+                let createVizDialog;
 
-                var opts: IHostDialogOptions = {
+                let opts: IHostDialogOptions = {
                     width: 800,
                     height: 600,
                     buttons: null,
-                    title: `Visualize Requirement: ` + req.RequirementId
+                    title: "Visualize Requirement: " + req.RequirementId
                 };
-
 
                 VSS.getService(VSS.ServiceIds.Dialog).then((dlg: IHostDialogService) => {
                     dlg.openDialog(VSS.getExtensionContext().publisherId + "." + VSS.getExtensionContext().extensionId + ".visualizerDialog", opts).then((dialog) => {
@@ -192,35 +188,28 @@ export module rMapper {
                             createVizDialog.start(req);
                         }, (err) => {
                             alert(err.message);
-
                         });
-                        
-
                     });
-
                 });
             }
 
             showImportDialog() {
-                var self = this;
-                var importMappingDialog; 
-                var opts: IHostDialogOptions = {
+                let self = this;
+                let importMappingDialog;
+                let opts: IHostDialogOptions = {
                     width: 425,
                     height: 250,
                     cancelText: "Close",
                     okCallback: (result) => {
-                        
                         this.adapter.store.getCollection(self.projectId + "-requirements", (reqt) => {
                             self.getRequirements(reqt);
                         });
-
                     },
-                    title: `Import Requirements`,
+                    title: "Import Requirements",
                     getDialogResult: () => {
                         return importMappingDialog ? importMappingDialog.import() : null;
                     }
                 };
-
 
                 VSS.getService(VSS.ServiceIds.Dialog).then((dlg: IHostDialogService) => {
                     dlg.openDialog(VSS.getExtensionContext().publisherId + "." + VSS.getExtensionContext().extensionId + ".importDialog", opts).then((dialog) => {
@@ -230,30 +219,27 @@ export module rMapper {
                             importMappingDialog.start();
                         }, (err) => {
                             alert(err.message);
-
                         });
-
                     });
-
                 });
             }
 
             showMappingDialog(reqt: string) {
-                var self = this;
-                var createMappingDialog;
+                let self = this;
+                let createMappingDialog;
 
-                var opts: IHostDialogOptions = {
+                let opts: IHostDialogOptions = {
                     width: 500,
                     height: 400,
                     okText: "Save",
                     cancelText: "Close",
                     okCallback: (result) => {
-                        var storage = new Storage.VsoDocumentServiceAdapter("ProjectCollection");
-                        var coll: Common.RequirementCollection;
+                        let storage = new Storage.VsoDocumentServiceAdapter("ProjectCollection");
+                        let coll: Common.RequirementCollection;
 
                         storage.getCollection(VSS.getWebContext().project.id + "-requirements", (src) => {
                             coll = new Common.RequirementCollection(src);
-                            var requirement: Common.Requirement = coll.getItem(reqt);
+                            let requirement: Common.Requirement = coll.getItem(reqt);
                             requirement.MappedItems = result;
                             coll.update(requirement);
                             storage.remove(VSS.getWebContext().project.id + "-requirements");
@@ -261,18 +247,17 @@ export module rMapper {
                             self.messenger.displayMessage(reqt + " successfully mapped to item(s) " + result + ".", CommonControls.MessageAreaType.Info);
                         });
                     },
-                    title: `Map Work Item(s): ${reqt}`,
+                    title: "Map Work Item(s): ${reqt}",
                     getDialogResult: () => {
                         return createMappingDialog ? createMappingDialog.save() : null;
                     }
                 };
 
-
                 VSS.getService(VSS.ServiceIds.Dialog).then((dlg: IHostDialogService) => {
                     dlg.openDialog(VSS.getExtensionContext().publisherId + "." + VSS.getExtensionContext().extensionId + ".mappingDialog", opts).then((dialog) => {
                         dialog.getContributionInstance("createMappingDialog").then((ci: any) => {
                             createMappingDialog = ci;
-                            createMappingDialog.start(`${reqt}`);
+                            createMappingDialog.start("${reqt}");
                         }, (err) => {
                             alert(err.message);
 
@@ -287,20 +272,17 @@ export module rMapper {
 
             clearRequirements() {
                 // Get confirmation that someone wants to delete this first?
-                var self = this;
-                var result = confirm("Are you sure you want to delete all requirements?  This will delete any mappings you have created as well.");
-                if (result.valueOf() == true) {
+                let self = this;
+                let result = confirm("Are you sure you want to delete all requirements?  This will delete any mappings you have created as well.");
+                if (result.valueOf() === true) {
                     self.adapter.store.remove(self.projectId + "-requirements");
                     $("#content").html("");
                     self.getRequirements();
                 }
-                
             }
         }
-
-
     }
 }
 
-var adapter = new Adapters.flatFileAdapter(new Storage.VsoDocumentServiceAdapter("ProjectCollection"));
+let adapter = new Adapters.FlatFileAdapter(new Storage.VsoDocumentServiceAdapter("ProjectCollection"));
 exports.rm = new rMapper.Core.Mapper(adapter);

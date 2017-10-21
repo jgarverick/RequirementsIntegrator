@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": null,
-  "version": "2.0.0-beta1",
+  "version": "2.0.6",
   "publisher": "jgarverick",
   "extensionId": "RequirementsIntegrator-beta",
   "name": "Requirements Integrator",
@@ -9,7 +9,7 @@
   "categories": [ "Plan and track" ],
   "description": "A requirements management and integration tool for Visual Studio Team Services.",
   "icons": {
-    "default": "img/logo.png"
+    "default": "static/img/logo.png"
   },
   "targets": [
     {
@@ -45,97 +45,13 @@
   },
   "files": [
     {
-      "path": "scripts/mappings.js",
-      "addressable": true,
-      "contentType": "text/javascript"
+      "path": "src",
+      "addressable": true
     },
     {
-      "path": "scripts/adapters.js",
+      "path": "node_modules/vss-web-extension-sdk/lib",
       "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/common.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/gaps.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/importDialog.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/mappingDialog.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/services.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/sprints.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/storage.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/utilities.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/visualizerDialog.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/dist/LICENSE",
-      "contentType": "text/plain"
-    },
-    {
-      "path": "scripts/dist/xlsx.full.min.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/dist/Blob.js",
-      "addressable": true,
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/dist/FileSaver.js",
-      "addressable": true,
-
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/dist/cytoscape/dagre.js",
-      "addressable": true,
-
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/dist/cytoscape/cytoscape.js",
-      "addressable": true,
-
-      "contentType": "text/javascript"
-    },
-    {
-      "path": "scripts/VSS.SDK.js",
-      "addressable": true,
-
-      "contentType": "text/javascript"
+      "packagePath": "lib"
     },
     {
       "path": "LICENSE.txt",
@@ -151,11 +67,11 @@
       "contentType": "application/vnd.ms-excel"
     },
     {
-      "path": "img",
+      "path": "static/img",
       "addressable": true
     },
     {
-      "path": "css",
+      "path": "static/css",
       "addressable": true
     },
     {

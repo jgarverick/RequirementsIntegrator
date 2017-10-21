@@ -1,5 +1,5 @@
-import Storage = require("Scripts/storage");
-import Services = require("Scripts/services");
+import Storage = require("src/storage");
+import Services = require("src/services");
 import Treeview = require("VSS/Controls/TreeView");
 export interface IAppInit {
     start(): any;
@@ -34,7 +34,7 @@ export declare class RequirementCollection implements ICollection<Requirement> {
 export declare class ViewModelBase {
     processTemplate: string;
     projectId: string;
-    messenger: Services.messageService;
+    messenger: Services.MessageService;
     tree: Treeview.TreeView;
     nodes: Array<Treeview.TreeNode>;
     constructor();

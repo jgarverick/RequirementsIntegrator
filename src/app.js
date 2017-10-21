@@ -1,5 +1,5 @@
-define(["require", "exports", "Scripts/services", "VSS/Controls/Common", "Scripts/adapters", "Scripts/storage", "Scripts/utilities"], function (require, exports, Services, CommonControls, Adapters, Storage, Utilities) {
-    var messenger = new Services.messageService();
+define(["require", "exports", "src/services", "VSS/Controls/Common", "src/adapters", "src/storage", "src/utilities"], function (require, exports, Services, CommonControls, Adapters, Storage, Utilities) {
+    var messenger = new Services.MessageService();
     var rMapper;
     (function (rMapper) {
         var Core;

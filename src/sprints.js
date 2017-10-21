@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "Scripts/storage", "Scripts/common", "Scripts/services", "VSS/Controls/Notifications"], function (require, exports, Storage, Common, Services, CommonControls) {
+define(["require", "exports", "src/storage", "src/common", "src/services", "VSS/Controls/Notifications"], function (require, exports, Storage, Common, Services, CommonControls) {
     "use strict";
     var rMapper;
     (function (rMapper) {
@@ -29,7 +29,7 @@ define(["require", "exports", "Scripts/storage", "Scripts/common", "Scripts/serv
             };
             SprintView.prototype.getSprints = function () {
                 var self = this;
-                var qs = new Services.queryService();
+                var qs = new Services.QueryService();
                 qs.getWorkItems("select * from WorkItems where [System.TeamProject] = '" + VSS.getWebContext().project.name + "'", ["System.IterationPath"]).then(function (results) {
                     var headers = new Array();
                     results.forEach(function (item, index) {

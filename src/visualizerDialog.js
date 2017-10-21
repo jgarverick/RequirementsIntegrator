@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "Scripts/storage", "Scripts/services", "VSS/Controls/Notifications", "VSS/Controls/Dialogs", "Scripts/adapters"], function (require, exports, Storage, Services, CommonControls, Dialogs, Adapters) {
+define(["require", "exports", "src/storage", "src/services", "VSS/Controls/Notifications", "VSS/Controls/Dialogs", "src/adapters"], function (require, exports, Storage, Services, CommonControls, Dialogs, Adapters) {
     "use strict";
     var dataNodes = [], dataEdges = [];
     var VisualizerDialog = (function (_super) {
@@ -26,7 +26,7 @@ define(["require", "exports", "Scripts/storage", "Scripts/services", "VSS/Contro
             var self = this;
             self.cytoscape = cy;
             self.context = context;
-            self.messenger = new Services.messageService();
+            self.messenger = new Services.MessageService();
             self.adapter = new Adapters.flatFileAdapter(new Storage.VsoDocumentServiceAdapter("ProjectCollection"));
         }
         VisualizerDialog.prototype.start = function (item) {
@@ -36,7 +36,7 @@ define(["require", "exports", "Scripts/storage", "Scripts/services", "VSS/Contro
                 return false;
             }
             self.mappedItems = item.MappedItems.split(",");
-            var qs = new Services.queryService();
+            var qs = new Services.QueryService();
             qs.getWorkItemHierarchy("select [System.Id], [System.WorkItemType], [System.Title], [System.State], " +
                 "[System.AreaPath], [System.IterationPath], [System.Tags] from WorkItemLinks where" +
                 " (Source.[System.TeamProject] = '" + VSS.getWebContext().project.name +

@@ -1,13 +1,13 @@
-﻿//---------------------------------------------------------------------
+﻿// --------------------------------------------------------------------
 // <copyright file="common.ts">
 //    This code is licensed under the MIT License.
-//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF 
-//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
-//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
 //    PARTICULAR PURPOSE AND NONINFRINGEMENT.
 // </copyright>
 // <summary>Common interfaces.</summary>
-//---------------------------------------------------------------------
+// ---------------------------------------------------------------------
 import Storage = require("../src/storage");
 import Utilities = require("../src/utilities");
 import Services = require("../src/services");
@@ -22,7 +22,7 @@ export interface IAppInit {
 
 export interface IStorageInit extends IAppInit {
     store: Storage.IStorageProvider;
-    //new (s: Storage.IStorageProvider);
+    // new (s: Storage.IStorageProvider);
 }
 
 export interface Wiql {
@@ -59,7 +59,7 @@ export class RequirementCollection implements ICollection<Requirement> {
 
     update(item: Requirement) {
         this.list.forEach((itm, index) => {
-            if (itm.RequirementId == item.RequirementId) {
+            if (itm.RequirementId === item.RequirementId) {
                 itm.Description = item.Description;
                 itm.Title = item.Title;
                 itm.MappedItems = item.MappedItems;
@@ -75,7 +75,7 @@ export class RequirementCollection implements ICollection<Requirement> {
     getItem(id: string) {
         let req: Requirement;
         this.list.forEach((itm, index) => {
-            if (itm.RequirementId == id) {
+            if (itm.RequirementId === id) {
                 req = itm;
                 return;
             }
@@ -87,7 +87,7 @@ export class RequirementCollection implements ICollection<Requirement> {
 export class ViewModelBase {
     public processTemplate: string;
     public projectId: string = VSS.getWebContext().project.id;
-    public messenger = new Services.messageService();
+    public messenger = new Services.MessageService();
     public tree: Treeview.TreeView;
     public nodes: Array<Treeview.TreeNode>;
 
@@ -104,13 +104,12 @@ export class ViewModelBase {
         self.nodes.push(sprints);
         self.nodes.push(gaps);
 
-
-        self.tree = Controls.create(Treeview.TreeView, $('#treeMenu'), {
+        self.tree = Controls.create(Treeview.TreeView, $("#treeMenu"), {
             nodes: self.nodes
 
         });
 
-        let menu = Controls.create<Menus.MenuBar, any>(Menus.MenuBar, $('#navToolbar'), {
+        let menu = Controls.create<Menus.MenuBar, any>(Menus.MenuBar, $("#navToolbar"), {
             items: [
                 {
                     id: "getTemplate",
@@ -124,13 +123,12 @@ export class ViewModelBase {
                     case "getTemplate":
                         window.open(VSS.getExtensionContext().baseUri + "/data/SampleRequirements.xlsx");
                         break;
-                    
                 }
             }
         });
 
         Utilities.getProcessTemplate(self.projectId).then((result) => {
-            self.processTemplate = result.capabilities["processTemplate"]["templateName"];           
+            self.processTemplate = result.capabilities["processTemplate"]["templateName"];
         }, (e) => {
             self.messenger.displayMessage(e.message, CommonControls.MessageAreaType.Error);
         });
@@ -139,7 +137,7 @@ export class ViewModelBase {
     setActiveNode(nodeText: string) {
         let self = this;
         self.nodes.forEach((itm, idx) => {
-            if (itm.text == nodeText) {
+            if (itm.text === nodeText) {
                 self.tree.setSelectedNode(itm);
                 return;
             }
@@ -150,7 +148,7 @@ export class ViewModelBase {
         let self = this;
         setTimeout(() => {
             if (self.processTemplate.match("CMMI") != null) {
-                $('#reqtMenu').hide();
+                $("#reqtMenu").hide();
                 $("#content").show().append("<span>The CMMI process template allows you to manage requirements natively.  Import, export and reporting functionality has been disabled at this time.</span>");
                 self.messenger.displayMessage("Warning: CMMI process template detected.", CommonControls.MessageAreaType.Warning);
             } else {
