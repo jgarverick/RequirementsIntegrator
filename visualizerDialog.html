@@ -26,10 +26,10 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
     <title>Requirements Management</title>
-    <link rel="stylesheet" href="css/app.css" type="text/css" />
-    <script src="scripts/VSS.SDK.js"></script>
-    <script src="scripts/dist/cytoscape/cytoscape.js"></script>
-    <script src="scripts/dist/cytoscape/dagre.js"></script>
+    <link rel="stylesheet" href="static/css/app.css" type="text/css" />
+    <script src="lib/VSS.SDK.js"></script>
+    <script src="lib/cytoscape/cytoscape.js"></script>
+    <script src="lib/cytoscape/dagre.js"></script>
     <script type="text/javascript">
         // Initialize the VSS sdk
         VSS.init({
@@ -43,7 +43,7 @@
             }
         });
         VSS.ready(function() {
-            require(["Scripts/visualizerDialog"], function(app) {
+            require(["dist/visualizer"], function(app) {
                 VSS.register("createVisualizerDialog", function(context) {
                     return new app.VisualizerDialog(context, cytoscape);
                 });

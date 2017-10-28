@@ -1,5 +1,5 @@
 ﻿<!--
- //---------------------------------------------------------------------
+ // ---------------------------------------------------------------------
  // <copyright file="gapAnalysis.html">
  //    This code is licensed under the MIT License.
  //    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
@@ -12,7 +12,7 @@
  //     ALM Rangers.  This file displays the gap analysis
  //     view.
  //  </summary>
- //---------------------------------------------------------------------
+ // ---------------------------------------------------------------------
 -->
 
 <!DOCTYPE html>
@@ -26,8 +26,8 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
     <title>Requirements Management</title>
-    <link rel="stylesheet" href="css/app.css" type="text/css" />
-    <script src="scripts/VSS.SDK.js"></script>
+    <link rel="stylesheet" href="static/css/app.css" type="text/css" />
+    <script src="lib/VSS.SDK.js"></script>
    <!-- <script type="text/javascript">
   var appInsights=window.appInsights||function(config){
     function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
@@ -48,14 +48,14 @@
             moduleLoaderConfig: {
                 paths: {
                     "Scripts": "scripts",
-                    "model": "scripts/model",
+                    "model": "src/model",
                     "dist": "dist"
                 }
             }
         });
         // Wait for the SDK to be initialized
         VSS.ready(function () {
-            VSS.require(["Scripts/gaps"], function (app) {
+            VSS.require(["dist/gaps"], function (app) {
                 app.ga.start();
             });
 

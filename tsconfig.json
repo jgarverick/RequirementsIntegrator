@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "target": "es5",
+    "rootDir": "src/",
+    "outDir": "dist/",
+    "types": [
+      "vss-web-extension-sdk"
+    ]
+  },
+  "files": [
+    "src/adapters.ts",
+    "src/common.ts",
+    "src/gaps.ts",
+    "src/importDialog.ts",
+    "src/mappingDialog.ts",
+    "src/mappings.ts",
+    "src/services.ts",
+    "src/sprints.ts",
+    "src/storage.ts",
+    "src/utilities.ts",
+    "src/visualizerDialog.ts"
+  ]
+}
