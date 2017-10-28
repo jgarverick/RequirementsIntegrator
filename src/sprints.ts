@@ -8,9 +8,9 @@
 // </copyright>
 // <summary>Backing model for the Sprint report view.</summary>
 // ---------------------------------------------------------------------
-import Storage = require("../src/storage");
-import Common = require("../src/common");
-import Services = require("../src/services");
+import Storage = require("storage");
+import Common = require("common");
+import Services = require("services");
 import CommonControls = require("VSS/Controls/Notifications");
 
 export namespace rMapper {
@@ -45,7 +45,7 @@ export namespace rMapper {
         getSprints() {
             let self = this;
             let qs = new Services.QueryService();
-            qs.getWorkItems("select * from WorkItems where [System.TeamProject] = '${VSS.getWebContext().project.name}'",
+            qs.getWorkItems("select * from WorkItems where [System.TeamProject] = '" + VSS.getWebContext().project.name + "'",
             ["System.IterationPath"]).then((results) => {
                 let headers = new Array<IterationItem>();
                 results.forEach((item, index) => {

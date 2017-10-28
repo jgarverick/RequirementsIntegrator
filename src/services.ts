@@ -9,7 +9,7 @@
 // <summary>Common services that can be exposed to all contributions.</summary>
 // ---------------------------------------------------------------------
 
-import Common = require("../src/common");
+import Common = require("common");
 import Controls = require("VSS/Controls");
 import CommonControls = require("VSS/Controls/Notifications");
 import TFS_Wit_WebApi = require("TFS/WorkItemTracking/RestClient");
@@ -20,6 +20,7 @@ export class MessageService {
     messenger: CommonControls.MessageAreaControl;
 
     displayMessage(message: string, messageType: CommonControls.MessageAreaType) {
+        $("#message").html("");
         let dlg = Controls.create(CommonControls.MessageAreaControl, $("#message"), null);
         dlg.setMessage(message, messageType);
         this.messenger = dlg;

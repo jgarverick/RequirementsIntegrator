@@ -9,12 +9,12 @@
 // <summary>Utility methods for boundary logging, process template information and others.</summary>
 // ---------------------------------------------------------------------
 
-import Services = require("../src/services");
+import Services = require("services");
 import CommonControls = require("VSS/Controls/Notifications");
 import Projects = require("TFS/Core/RestClient");
 import VSS_Service = require("VSS/Service");
 import VSS_Contracts = require("TFS/Core/Contracts");
-import Common = require("../src/common");
+import Common = require("common");
 
 let messenger = new Services.MessageService();
 let datenum, encode_range;

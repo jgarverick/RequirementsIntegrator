@@ -9,8 +9,8 @@
  // <summary>Backing model for the gap analysis view.</summary>
  // ---------------------------------------------------------------------
 
-import Common = require("../src/common");
-import Storage = require("../src/storage");
+import Common = require("common");
+import Storage = require("storage");
 
 export namespace rMapper {
     export class GapAnalysis extends Common.ViewModelBase implements Common.IStorageInit {

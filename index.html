@@ -27,9 +27,9 @@
     <meta http-equiv="pragma" content="no-cache" />
     <title>Requirements Management</title>
     <link rel="stylesheet" href="static/css/app.css" type="text/css" />
-    <script src="src/dist/xlsx.full.min.js"></script>
-    <script src="src/dist/Blob.js"></script>
-    <script src="src/dist/FileSaver.js"></script>
+    <script src="lib/xlsx.full.min.js"></script>
+    <script src="lib/Blob.js"></script>
+    <script src="lib/FileSaver.js"></script>
     <script src="lib/VSS.SDK.js"></script>
  <!--   <script type="text/javascript">
   var appInsights=window.appInsights||function(config){
@@ -49,14 +49,14 @@
             usePlatformScripts: true,
             moduleLoaderConfig: {
                 paths: {
-                    "Scripts": "scripts",
+                    "src": "src",
                     "dist": "dist"
                 }
             }
         });
         // Wait for the SDK to be initialized
         VSS.ready(function () {
-            VSS.require(["src/mappings"], function (app) {
+            VSS.require(["dist/app"], function (app) {
                 app.rm.start();
 
             });

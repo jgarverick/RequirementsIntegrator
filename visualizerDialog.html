@@ -28,8 +28,8 @@
     <title>Requirements Management</title>
     <link rel="stylesheet" href="static/css/app.css" type="text/css" />
     <script src="lib/VSS.SDK.js"></script>
-    <script src="src/dist/cytoscape/cytoscape.js"></script>
-    <script src="src/dist/cytoscape/dagre.js"></script>
+    <script src="lib/cytoscape/cytoscape.js"></script>
+    <script src="lib/cytoscape/dagre.js"></script>
     <script type="text/javascript">
         // Initialize the VSS sdk
         VSS.init({
@@ -43,7 +43,7 @@
             }
         });
         VSS.ready(function() {
-            require(["src/visualizerDialog"], function(app) {
+            require(["dist/visualizer"], function(app) {
                 VSS.register("createVisualizerDialog", function(context) {
                     return new app.VisualizerDialog(context, cytoscape);
                 });

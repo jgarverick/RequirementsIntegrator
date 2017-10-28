@@ -1,9 +1,9 @@
 {
   "manifestVersion": 1,
   "id": null,
-  "version": "2.0.6",
+  "version": "2.0.1",
   "publisher": "jgarverick",
-  "extensionId": "RequirementsIntegrator-beta",
+  "extensionId": "RequirementsIntegrator",
   "name": "Requirements Integrator",
   "scopes": [ "vso.work", "vso.work_write" ],
   "categories": [ "Plan and track" ],
@@ -16,10 +16,10 @@
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "public": false,
+  "public": true,
   "content": {
     "details": {
-      "path": "doc/overview.md"
+      "path": "overview.md"
     },
     "license": {
       "path": "LICENSE.txt"
@@ -45,8 +45,17 @@
   },
   "files": [
     {
-      "path": "src",
+      "path": "dist",
       "addressable": true
+    },
+    {
+      "path": "src/dist",
+      "addressable": true,
+      "packagePath": "lib"
+    },
+    {
+      "path": "src/dist/cytoscape",
+      "packagePath": "lib/cytoscape"
     },
     {
       "path": "node_modules/vss-web-extension-sdk/lib",
@@ -58,7 +67,8 @@
       "contentType": "text/plain"
     },
     {
-      "path": "doc/overview.md",
+      "path": "overview.md",
+      "addressable": true,
       "contentType": "text/plain"
     },
     {

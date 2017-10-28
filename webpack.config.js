@@ -4,7 +4,17 @@ var webpack = require("webpack");
 module.exports = {
     target: "web",
     entry: {
-        app: "./src/mappings.ts"
+        app: "./src/mappings.ts",
+        importDialog: "./src/importDialog.ts",
+        mappingDialog: "./src/mappingDialog.ts",
+        common: "./src/common.ts",
+        adapters: "./src/adapters.ts",
+        gaps: "./src/gaps.ts",
+        services: "./src/services.ts",
+        sprints: "./src/sprints.ts",
+        storage: "./src/storage.ts",
+        utilities: "./src/utilities.ts",
+        visualizer: "./src/visualizerDialog.ts"
     },
     output: {
         filename: "[name].js",

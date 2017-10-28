@@ -10,10 +10,10 @@
 // ---------------------------------------------------------------------
 
 /// <reference path="common.ts" />
-import Services = require("../src/services");
-import Utilities = require("../src/utilities");
+import Services = require("services");
+import Utilities = require("utilities");
 import CommonControls = require("VSS/Controls/Notifications");
-import Common = require("../src/common");
+import Common = require("common");
 
 export interface IStorageProvider {
     getCollection(collectionId: string, callback: Function);
@@ -56,7 +56,7 @@ export class LocalStorageAdapter implements IStorageProvider {
 
     remove(id: string) {
             localStorage.removeItem(id);
-            this.messenger.displayMessage(`Item '${id}' removed.`, CommonControls.MessageAreaType.Info);
+            this.messenger.displayMessage("Item '${id}' removed.", CommonControls.MessageAreaType.Info);
     }
 }
 

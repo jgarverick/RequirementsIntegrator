@@ -11,10 +11,10 @@
 
 /// <reference path="ref/xlsx.d.ts" />
 /// <reference path="adapters.ts" />
-import Adapters = require("../src/adapters");
-import Utilities = require("../src/utilities");
-import Storage = require("../src/storage");
-import Common = require("../src/common");
+import Adapters = require("adapters");
+import Utilities = require("utilities");
+import Storage = require("storage");
+import Common = require("common");
 import Controls = require("VSS/Controls");
 import Menus = require("VSS/Controls/Menus");
 import CommonControls = require("VSS/Controls/Notifications");
@@ -247,7 +247,7 @@ export namespace rMapper {
                             self.messenger.displayMessage(reqt + " successfully mapped to item(s) " + result + ".", CommonControls.MessageAreaType.Info);
                         });
                     },
-                    title: "Map Work Item(s): ${reqt}",
+                    title: "Map Work Item(s):" + reqt,
                     getDialogResult: () => {
                         return createMappingDialog ? createMappingDialog.save() : null;
                     }
@@ -257,7 +257,7 @@ export namespace rMapper {
                     dlg.openDialog(VSS.getExtensionContext().publisherId + "." + VSS.getExtensionContext().extensionId + ".mappingDialog", opts).then((dialog) => {
                         dialog.getContributionInstance("createMappingDialog").then((ci: any) => {
                             createMappingDialog = ci;
-                            createMappingDialog.start("${reqt}");
+                            createMappingDialog.start(reqt);
                         }, (err) => {
                             alert(err.message);
 

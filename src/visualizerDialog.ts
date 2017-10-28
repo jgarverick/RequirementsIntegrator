@@ -15,12 +15,12 @@
 /// <reference path="ref/xlsx.d.ts" />
 /// <reference path="adapters.ts" />
 
-import Storage = require("../src/storage");
-import Services = require("../src/services");
+import Storage = require("storage");
+import Services = require("services");
 import CommonControls = require("VSS/Controls/Notifications");
 import Dialogs = require("VSS/Controls/Dialogs");
-import Adapters = require("../src/adapters");
-import Common = require("../src/common");
+import Adapters = require("adapters");
+import Common = require("common");
 import Contracts = require("TFS/WorkItemTracking/Contracts");
 
 let dataNodes = [],

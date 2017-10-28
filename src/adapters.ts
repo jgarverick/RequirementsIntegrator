@@ -12,10 +12,10 @@
  // ---------------------------------------------------------------------
 /// <reference path="services.ts" />
 
-import Services = require("../src/services");
-import Storage = require("../src/storage");
+import Services = require("services");
+import Storage = require("storage");
 import CommonControls = require("VSS/Controls/Notifications");
-import Common = require("../src/common");
+import Common = require("common");
 
     export interface HTMLFileElement extends HTMLElement {
         files: FileList;

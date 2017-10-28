@@ -8,9 +8,9 @@
 // </copyright>
 // <summary>Common interfaces.</summary>
 // ---------------------------------------------------------------------
-import Storage = require("../src/storage");
-import Utilities = require("../src/utilities");
-import Services = require("../src/services");
+import Storage = require("storage");
+import Utilities = require("utilities");
+import Services = require("services");
 import CommonControls = require("VSS/Controls/Notifications");
 import Controls = require("VSS/Controls");
 import Treeview = require("VSS/Controls/TreeView");
